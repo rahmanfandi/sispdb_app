@@ -30,6 +30,7 @@ public class IkanSubKelas {
 	private String kode1;
 	@Column(name="KODE2", length=20)
 	private String kode2;
+	
 	@Column(name="DESCRIPTION", length=100)
 	private String description;
 	@Column(name="NOTES", length=350)
@@ -111,6 +112,8 @@ public class IkanSubKelas {
 	public void setModifiedBy(String modifiedBy) {
 		this.modifiedBy = modifiedBy;
 	}
+	
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;

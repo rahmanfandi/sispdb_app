@@ -4,6 +4,7 @@ public enum EnumStatusOperasiForm {
     OPEN("OPEN", "Status Open"),
     ADD_NEW("ADD_NEW", "Status Add New"),
     EDIT_FORM("EDIT_FORM", "Status Edit Form"),
+    DEL_STAT("DEL_STAT", "Delete Database Status"),
     ADD_ITEMS("ADD_ITEMS", "Status Add Items"),
     EDIT_ITEMS("EDIT_ITEMS", "Status Edit Items"),
     EDIT_PRICE("EDIT_PRICE", "Status Edit Item Prices"),

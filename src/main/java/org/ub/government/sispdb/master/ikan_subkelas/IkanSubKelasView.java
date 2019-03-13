@@ -76,41 +76,6 @@ public class IkanSubKelasView extends FormTemplate1_IntFrame{
 		public void initComponentView(){
 			//Masukkan Form Component
 			
-//			formHeader = new CustomerAreaViewForm(this);
-//			formHeader.setSizeFull();
-//			formHeader.setVisible(false); // Default Close
-//			contentLayoutMiddle.addComponent(formHeader);
-//			
-//			getGrid1().setItems(model.getListHeader());
-//			
-//			grid1.setSelectionMode(SelectionMode.SINGLE);
-//			
-//			//KARENA PILIH MULTI DI DIS ABLE
-////			getGrid1().setSelectionMode(SelectionMode.MULTI);
-//
-//			
-//			headerRowGrid1 = getGrid1().prependHeaderRow();
-//				HeaderCell headerCellGrid11 = headerRowGrid1.getCell("kode1");
-//				HeaderCell headerCellGrid12 = headerRowGrid1.getCell("description");
-//			
-////				getFieldHeaderCell1().setImmediate(true);
-//				getFieldHeaderCell1().setSizeFull();
-////				getFieldHeaderCell2().setImmediate(true);
-//				getFieldHeaderCell2().setSizeFull();
-//				
-//				headerCellGrid11.setComponent(fieldHeaderCell1);		
-//				headerCellGrid12.setComponent(fieldHeaderCell2);		
-//			
-//			footerRowGrid1 = getGrid1().prependFooterRow();
-//				FooterCell footerCell1 = footerRowGrid1.getCell("kode1");
-//			
-////				getLayoutButtonOnGrid1FooterRow().addComponent(getBtnNewForm());
-////				getLayoutButtonOnGrid1FooterRow().addComponent(getBtnEditForm());
-////				getLayoutButtonOnGrid1FooterRow().addComponent(getBtnDeleteForm());
-////				footerCell1.setComponent(getLayoutButtonOnGrid1FooterRow());
-//			
-//			grid1.setFooterVisible(true);
-
 			getLabelGroup1().setVisible(false);
 			getLabelGroup2().setVisible(false);
 			getCombo_Group1().setVisible(false);
@@ -135,11 +100,6 @@ public class IkanSubKelasView extends FormTemplate1_IntFrame{
 			getBtnSave().addActionListener(e -> onViewListener.aksiBtnSaveForm() );
 			getBtnCancel().addActionListener(e -> onViewListener.aksiBtnCancelForm() );
 			
-//			getBtnSave().addActionListener(listenerBtnSave);
-			
-//			btnCancelForm.addClickListener(e -> onViewListener.aksiBtnCancelForm());
-			
-//			menuItemOtherMenuMultiSelect.setCommand(e -> onViewListener.aksiMenuItemMultiSelect());
 			
 //			fieldHeaderCell1.addValueChangeListener(e -> onViewListener.aksiFieldHeaderCell1(e));
 //			fieldHeaderCell2.addValueChangeListener(e -> onViewListener.aksiFieldHeaderCell2(e));
@@ -234,6 +194,9 @@ public class IkanSubKelasView extends FormTemplate1_IntFrame{
 			}else if (model.statusOperasiForm.equals(EnumStatusOperasiForm.EDIT_FORM)){
 		        int selectedRow = getjTable1().getSelectedRow();
 				model.tableModelHeader.update(model.itemHeader, selectedRow);
+			}else if (model.statusOperasiForm.equals(EnumStatusOperasiForm.DEL_STAT)) {
+		        int selectedRow = getjTable1().getSelectedRow();
+				model.tableModelHeader.delete( selectedRow);
 			}
 		}
 		
@@ -442,7 +405,7 @@ public class IkanSubKelasView extends FormTemplate1_IntFrame{
 				getBtnCancel().setEnabled(true);
 				
 			}else if (model.statusOperasiForm.equals(EnumStatusOperasiForm.EDIT_FORM  )){
-				getTf_ID().setEditable(true);
+				getTf_ID().setEditable(false); //Kode tidak boleh di rubah saat edit
 				getTf_Description().setEditable(true);
 				getTa_Notes().setEditable(true);
 				

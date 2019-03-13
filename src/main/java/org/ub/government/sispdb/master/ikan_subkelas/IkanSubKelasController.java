@@ -25,6 +25,9 @@ public class IkanSubKelasController implements OnViewListener{
 	public void aksiBtnNewForm() {
 		model.resetNewObject_Header();
 		
+		view.readBinderHeader();
+		view.getTf_ID().requestFocus();
+		
 		model.statusOperasiForm = EnumStatusOperasiForm.ADD_NEW;
 		view.setFormButtonAndTextState();
 		
@@ -32,13 +35,27 @@ public class IkanSubKelasController implements OnViewListener{
 
 	@Override
 	public void aksiBtnEditForm() {
-		// TODO Auto-generated method stub
+		view.readBinderHeader();
 		
+		view.getTf_Description().requestFocus();
+		
+		model.statusOperasiForm = EnumStatusOperasiForm.EDIT_FORM;
+		view.setFormButtonAndTextState();		
 	}
 
 	@Override
 	public void aksiBtnDeleteForm() {
-		// TODO Auto-generated method stub
+		if (model.statusOperasiForm.equals(EnumStatusOperasiForm.OPEN)) {
+			model.statusOperasiForm = EnumStatusOperasiForm.DEL_STAT;
+			model.deleteFromDatabase(null);
+			view.updateDataGrid1();
+			
+			model.resetNewObject_Header();
+			view.readBinderHeader();
+			
+			model.statusOperasiForm = EnumStatusOperasiForm.OPEN;
+		}
+		
 		
 	}
 
