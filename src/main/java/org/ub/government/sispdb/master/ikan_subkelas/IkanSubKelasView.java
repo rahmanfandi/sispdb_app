@@ -116,7 +116,9 @@ public class IkanSubKelasView extends FormTemplate1_IntFrame{
 			getCombo_Group1().setVisible(false);
 			getCombo_Group2().setVisible(false);
 			
+			setFormButtonAndTextState();
 			
+			getjTable1().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		}
 		
 		
@@ -127,10 +129,11 @@ public class IkanSubKelasView extends FormTemplate1_IntFrame{
 
 //			btnReloadFromDb.addClickListener(e -> onViewListener.aksiBtnReloadFromDb());
 			getBtnNew().addActionListener(e -> onViewListener.aksiBtnNewForm());
+			getBtnEdit().addActionListener(e -> onViewListener.aksiBtnEditForm());
+			getBtnDelete().addActionListener(e -> onViewListener.aksiBtnDeleteForm());
 			
-//			btnEditForm.addClickListener(e -> onViewListener.aksiBtnEditForm());
-//			btnDeleteForm.addClickListener(e -> onViewListener.aksiBtnDeleteForm());
-			getBtnSave().addActionListener(e -> onViewListener.aksiBtnSaveForm());
+			getBtnSave().addActionListener(e -> onViewListener.aksiBtnSaveForm() );
+			getBtnCancel().addActionListener(e -> onViewListener.aksiBtnCancelForm() );
 			
 //			getBtnSave().addActionListener(listenerBtnSave);
 			
@@ -410,28 +413,47 @@ public class IkanSubKelasView extends FormTemplate1_IntFrame{
 			 */
 			//KODE REFNO SELALU READ ONLY KARENA OTOMATIS
 			
-//			if (model.getOperationStatus().equals(EnumOperationStatus.OPEN.getStrCode())){
-//				fieldId.setReadOnly(true);
-//				formLayout.setVisible(false);
-//				table.setSelectable(true);
-//				btnAddForm.setEnabled(true);
-//				btnDeleteForm.setEnabled(true);			
-//				btnSearch.setEnabled(true);
-//			} else if (model.getOperationStatus().equals(EnumOperationStatus.ADDING.getStrCode())){
-//				fieldId.setReadOnly(false);
-//				formLayout.setVisible(true);
-//				table.setSelectable(false);
-//				btnAddForm.setEnabled(false);
-//				btnDeleteForm.setEnabled(false);
-//				btnSearch.setEnabled(false);
-//			}else if (model.getOperationStatus().equals(EnumOperationStatus.EDITING.getStrCode())){
-//				fieldId.setReadOnly(true);
-//				formLayout.setVisible(true);
-//				table.setSelectable(true);
-//				btnAddForm.setEnabled(true);
-//				btnDeleteForm.setEnabled(true);			
-//				btnSearch.setEnabled(true);
-//			}		
+			if (model.statusOperasiForm.equals(EnumStatusOperasiForm.OPEN )){
+				getTf_ID().setEditable(false);
+				getTf_Description().setEditable(false);
+				getTa_Notes().setEditable(false);
+				
+				getjTable1().setCellSelectionEnabled(true);
+
+				getBtnNew().setEnabled(true);
+				getBtnEdit().setEnabled(true);
+				getBtnDelete().setEnabled(true);
+				getBtnSave().setEnabled(false);
+				getBtnCancel().setEnabled(false);
+
+				getjTable1().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+				
+			} else if (model.statusOperasiForm.equals(EnumStatusOperasiForm.ADD_NEW )){
+				getTf_ID().setEditable(true);
+				getTf_Description().setEditable(true);
+				getTa_Notes().setEditable(true);
+				
+				getjTable1().setCellSelectionEnabled(false);
+
+				getBtnNew().setEnabled(false);
+				getBtnEdit().setEnabled(false);
+				getBtnDelete().setEnabled(false);
+				getBtnSave().setEnabled(true);
+				getBtnCancel().setEnabled(true);
+				
+			}else if (model.statusOperasiForm.equals(EnumStatusOperasiForm.EDIT_FORM  )){
+				getTf_ID().setEditable(true);
+				getTf_Description().setEditable(true);
+				getTa_Notes().setEditable(true);
+				
+				getjTable1().setCellSelectionEnabled(false);
+
+				getBtnNew().setEnabled(false);
+				getBtnEdit().setEnabled(false);
+				getBtnDelete().setEnabled(false);
+				getBtnSave().setEnabled(true);
+				getBtnCancel().setEnabled(true);
+			}		
 			
 		}
 		

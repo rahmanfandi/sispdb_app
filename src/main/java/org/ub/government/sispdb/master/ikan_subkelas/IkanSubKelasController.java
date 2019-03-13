@@ -25,9 +25,9 @@ public class IkanSubKelasController implements OnViewListener{
 	public void aksiBtnNewForm() {
 		model.resetNewObject_Header();
 		
-		view.setFormButtonAndTextState();
 		model.statusOperasiForm = EnumStatusOperasiForm.ADD_NEW;
-		System.out.println("Status operasi form: " + model.statusOperasiForm);
+		view.setFormButtonAndTextState();
+		
 	}
 
 	@Override
@@ -53,14 +53,16 @@ public class IkanSubKelasController implements OnViewListener{
 		//Update View
 		view.updateDataGrid1();
 		
-		view.setFormButtonAndTextState();
 		model.statusOperasiForm = EnumStatusOperasiForm.OPEN;
+		view.setFormButtonAndTextState();
 
 	}
 
 	@Override
 	public void aksiBtnCancelForm() {
-		// TODO Auto-generated method stub
+		
+		model.statusOperasiForm = EnumStatusOperasiForm.OPEN;
+		view.setFormButtonAndTextState();
 		
 	}
 
