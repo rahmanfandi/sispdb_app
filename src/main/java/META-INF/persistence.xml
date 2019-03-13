@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="erpPU" transaction-type="RESOURCE_LOCAL">
+<!-- 	    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> -->		
+ 			<provider>org.eclipse.persistence.jpa.PersistenceProvider</provider> 
+<!-- 			<provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+ -->			
+			<class>org.ub.government.sispdb.model.AlatTangkap</class>
+			<class>org.ub.government.sispdb.model.Desa</class>
+			<class>org.ub.government.sispdb.model.IkanJenis</class>
+			<class>org.ub.government.sispdb.model.IkanSubKelas</class>
+			<class>org.ub.government.sispdb.model.JenisPerairan</class>
+			<class>org.ub.government.sispdb.model.Kabupaten</class>
+			<class>org.ub.government.sispdb.model.Kapal</class>
+			<class>org.ub.government.sispdb.model.Kecamatan</class>
+			<class>org.ub.government.sispdb.model.Pemda</class>
+			<class>org.ub.government.sispdb.model.PemProv</class>
+			<class>org.ub.government.sispdb.model.Propinsi</class>
+			<class>org.ub.government.sispdb.model.SatuanKerja</class>
+			<class>org.ub.government.sispdb.model.TabulatorEnumerator</class>
+			<class>org.ub.government.sispdb.model.Tangkaph</class>
+			<class>org.ub.government.sispdb.model.TangkapItem</class>
+			<class>org.ub.government.sispdb.model.UnitKerja</class>
+			<class>org.ub.government.sispdb.model.Upt</class>
+			
+			<class>org.ub.government.sispdb.model.Sysvar</class>
+			<class>org.ub.government.sispdb.model.UserLog</class>
+			
+<!-- 	    	    					
+	    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+ -->	    
+	    <properties>
+	    
+<!-- 			
+			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:hsqldb_test;shutdown=true" /> 		
+			<property name="javax.persistence.jdbc.url" value="jdbc:hsqldb:file:hsqldb_test" />
+	      	<property name="javax.persistence.jdbc.driver" value="org.hsqldb.jdbcDriver"/>
+	      	<property name="javax.persistence.jdbc.user" value="sa"/>
+	      	<property name="javax.persistence.jdbc.password" value=""/>
+			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />   			
+			<property name="eclipselink.ddl-generation" value="create-or-extend-tables" />
+	 		<property name="eclipselink.ddl-generation.output-mode" value="database" />
+ -->	      
+<!-- 	      
+ 	      <property name="javax.persistence.schema-generation.create-source" value="script"/>
+	      <property name="javax.persistence.schema-generation.create-script-source" value="META-INF/create.sql"/>
+ 		  <property name="javax.persistence.schema-generation.drop-source" value="script"/>
+	      <property name="javax.persistence.schema-generation.drop-script-source" value="META-INF/drop.sql"/>
+	      <property name="javax.persistence.sql-load-script-source" value="META-INF/data.sql"/>
+ --> 
+ 
+<!-- 			
+			<property name="javax.persistence.jdbc.url" value="jdbc:derby:derbydb3;create=true" />
+	       	<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver"/>
+  			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" />    			
+ 			<property name="eclipselink.ddl-generation" value="create-or-extend-tables" />
+	 		<property name="eclipselink.ddl-generation.output-mode" value="database" />
+ -->			
+ <!-- H2 -->
+ 
+			<property name="javax.persistence.jdbc.url" value="jdbc:h2:file:~/sispdb_h2db" />
+<!--  			<property name="javax.persistence.jdbc.url" value="jdbc:h2:mem:h2db_jpa" />--> 	       
+			<property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+			<property name="javax.persistence.jdbc.user" value="sa" />
+<!--   			<property name="eclipselink.ddl-generation" value="drop-and-create-tables" /> -->   			
+			<property name="eclipselink.ddl-generation" value="create-or-extend-tables" />
+ 	 		<property name="eclipselink.ddl-generation.output-mode" value="database" />
+			<property name="openjpa.RuntimeUnenhancedClasses" value="supported" />		
+
+	
+	    </properties>
+
+	</persistence-unit>
+</persistence>
