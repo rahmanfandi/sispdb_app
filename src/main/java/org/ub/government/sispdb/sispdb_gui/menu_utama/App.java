@@ -10,7 +10,6 @@ package org.ub.government.sispdb.sispdb_gui.menu_utama;
  * @author yhawin
  */
 
-//nyoba singkron
 public class App{
     
     public static void main(String args[]) {
